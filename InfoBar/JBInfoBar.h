@@ -27,5 +27,6 @@
 - (void)showBarWithMessage:(NSString *)message;
 - (void)hideBarWithMessage:(NSString *)message;
 - (void)setMessage:(NSString *)message;
+- (UILabel *)infoLabel;
 
 @end

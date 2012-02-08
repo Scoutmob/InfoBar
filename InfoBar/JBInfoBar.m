@@ -56,6 +56,10 @@
     if (message != nil) infoLabel.text = message;
 }
 
+- (UILabel *)infoLabel {
+    return infoLabel;
+}
+
 - (void)showBarWithMessage:(NSString *)message {
     [self setMessage:message];
     if (isHidden) {
