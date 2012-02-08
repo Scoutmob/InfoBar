@@ -24,5 +24,6 @@
 
 - (void)showInfoBarWithMessage:(NSString *)message;
 - (void)hideInfoBarWithMessage:(NSString *)message;
+- (void)hideInfoBarImmediately;
 
 @end

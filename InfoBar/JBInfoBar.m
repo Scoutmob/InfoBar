@@ -83,6 +83,13 @@
     }
 }
 
+- (void)hideBarImmediately {
+    if (!isHidden) {
+        self.center = hiddenCP;
+        isHidden = YES;
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

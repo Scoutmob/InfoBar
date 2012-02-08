@@ -53,6 +53,9 @@ static JBInfoBarManager *sharedJBInfoBarManager = nil;
     [infoBar hideBarWithMessage:nil];
 }
 
+- (void)hideInfoBarImmediately {
+    [infoBar hideBarImmediately];
+}
 
 #pragma mark -
 #pragma mark Singleton

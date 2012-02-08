@@ -26,6 +26,7 @@
            textFont:(UIFont *)tFont;
 - (void)showBarWithMessage:(NSString *)message;
 - (void)hideBarWithMessage:(NSString *)message;
+- (void)hideBarImmediately;
 - (void)setMessage:(NSString *)message;
 - (UILabel *)infoLabel;
 
