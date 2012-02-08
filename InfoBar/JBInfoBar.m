@@ -30,6 +30,8 @@
             [self setBackgroundColor:bColor];
         }
         
+        [self setHidden:YES];
+        
         infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [infoLabel setTextAlignment:UITextAlignmentCenter];
 
@@ -63,6 +65,7 @@
 - (void)showBarWithMessage:(NSString *)message {
     [self setMessage:message];
     if (isHidden) {
+        [self setHidden:NO];
         [UIView transitionWithView:self duration:0.5
                            options:UIViewAnimationOptionTransitionNone
                         animations:^ { self.center = showCP; }
@@ -78,7 +81,9 @@
         [UIView transitionWithView:self duration:1.5
                            options:UIViewAnimationOptionTransitionNone
                         animations:^ { self.center = hiddenCP; }
-                        completion:nil];
+                        completion:^(BOOL finished) {
+                            [self setHidden:YES];
+                        }];
         isHidden = YES;
     }
 }
@@ -86,6 +91,7 @@
 - (void)hideBarImmediately {
     if (!isHidden) {
         self.center = hiddenCP;
+        [self setHidden:YES];
         isHidden = YES;
     }
 }
