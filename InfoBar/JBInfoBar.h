@@ -18,6 +18,9 @@
     UILabel *infoLabel;
 }
 
+@property (nonatomic,assign) NSTimeInterval hideAnimationDelay;
+@property (nonatomic,assign) NSTimeInterval hideAnimationDuration;
+@property (nonatomic,assign) NSTimeInterval showAnimationDuration;
 @property (readonly,assign) BOOL isHidden;
 
 - (id)initWithFrame:(CGRect)frame

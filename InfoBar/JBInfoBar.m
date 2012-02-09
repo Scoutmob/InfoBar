@@ -10,7 +10,7 @@
 
 @implementation JBInfoBar
 
-@synthesize isHidden;
+@synthesize isHidden, hideAnimationDelay, hideAnimationDuration, showAnimationDuration;
 
 - (id)initWithFrame:(CGRect)frame
     backgroundColor:(UIColor *)bColor
@@ -50,6 +50,10 @@
         [infoLabel setBackgroundColor:[UIColor clearColor]];
         
         [self addSubview:infoLabel];
+        
+        self.hideAnimationDelay    = 0.0f;
+        self.hideAnimationDuration = 1.5f;
+        self.showAnimationDuration = 0.5f;
     }
     return self;
 }
@@ -66,7 +70,7 @@
     [self setMessage:message];
     if (isHidden) {
         [self setHidden:NO];
-        [UIView transitionWithView:self duration:0.5
+        [UIView transitionWithView:self duration:showAnimationDuration
                            options:UIViewAnimationOptionTransitionNone
                         animations:^ { self.center = showCP; }
                         completion:nil];
@@ -78,12 +82,13 @@
     if (message)
         [self setMessage:message];
     if (!isHidden) {
-        [UIView transitionWithView:self duration:1.5
-                           options:UIViewAnimationOptionTransitionNone
-                        animations:^ { self.center = hiddenCP; }
-                        completion:^(BOOL finished) {
-                            [self setHidden:YES];
-                        }];
+        [UIView animateWithDuration:hideAnimationDuration
+                              delay:hideAnimationDelay
+                            options:UIViewAnimationOptionTransitionNone
+                         animations:^ { self.center = hiddenCP; }
+                         completion:^(BOOL finished) {
+                             [self setHidden:YES];
+                         }];
         isHidden = YES;
     }
 }
