@@ -16,6 +16,8 @@
 + (NSInteger) defaultInfoBarTag;
 
 - (void) showInfoBarWithMessage:(NSString *)message;
+- (void) showInfoBarWithMessage:(NSString *)message hideAfterDelay:(NSTimeInterval)delay;
+
 - (void) hideInfoBar;
 - (void) hideInfoBarWithMessage:(NSString *)message;
 - (void) hideInfoBarImmediately;

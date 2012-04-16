@@ -33,13 +33,13 @@
 #pragma mark Action Methods
 
 - (void) showInfoBarWithMessage:(NSString *)message {
-	JBInfoBar *infoBar = self.infoBar;
-	if(!infoBar) {
-		infoBar = [self createDefaultInfoBar];
-		[self insertInfoBar:infoBar];
-	}
-	
+	JBInfoBar *infoBar = [self getOrCreateInfoBar];
 	[infoBar showWithMessage:message];
+}
+
+- (void) showInfoBarWithMessage:(NSString *)message hideAfterDelay:(NSTimeInterval)delay {
+	JBInfoBar *infoBar = [self getOrCreateInfoBar];
+	[infoBar showWithMessage:message hideAfterDelay:delay];
 }
 
 - (void) hideInfoBar {
@@ -69,6 +69,15 @@
 	CGRect frame = CGRectMake(0, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, height);
 	JBInfoBar *infoBar = [[[JBInfoBar alloc] initWithFrame:frame] autorelease];
 	infoBar.tag = [[self class] defaultInfoBarTag];
+	return infoBar;
+}
+
+- (JBInfoBar*) getOrCreateInfoBar {
+	JBInfoBar *infoBar = self.infoBar;
+	if(!infoBar) {
+		infoBar = [self createDefaultInfoBar];
+		[self insertInfoBar:infoBar];
+	}
 	return infoBar;
 }
 

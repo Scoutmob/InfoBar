@@ -15,12 +15,15 @@
     
 @private
     UILabel *infoLabel;
+	NSTimer *hideTimer;
 }
 
 
 - (id)initWithFrame:(CGRect)frame;
 
 - (void)showWithMessage:(NSString *)message;
+- (void)showWithMessage:(NSString *)message hideAfterDelay:(NSTimeInterval)delay;
+
 - (void)hide;
 - (void)hideWithMessage:(NSString *)message;
 - (void)hideImmediately;

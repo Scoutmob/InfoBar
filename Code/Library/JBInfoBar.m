@@ -24,6 +24,8 @@
 - (void) prepareInfoLabel;
 - (void) prepareDefaultTimings;
 
+- (void) cancelAndClearHideTimer;
+
 @end
 
 
@@ -38,6 +40,8 @@
 #pragma Public Action Methods
 
 - (void)showWithMessage:(NSString *)_message {
+	[self cancelAndClearHideTimer];
+	
     self.message = _message;
 	
     if(visible)
@@ -53,7 +57,15 @@
 	visible = YES;
 }
 
+- (void)showWithMessage:(NSString *)message hideAfterDelay:(NSTimeInterval)delay {
+	[self showWithMessage:message];
+	
+	hideTimer = [[NSTimer scheduledTimerWithTimeInterval:delay target:self selector:@selector(hide) userInfo:nil repeats:NO] retain];
+}
+
 - (void)hide {
+	[self cancelAndClearHideTimer];
+	
     if(!visible)
 		return;
 	
@@ -70,18 +82,30 @@
 }
 
 - (void)hideWithMessage:(NSString *)_message {
+	[self cancelAndClearHideTimer];
+	
     self.message = _message;
 	
 	[self hide];
 }
 
 - (void)hideImmediately {
+	[self cancelAndClearHideTimer];
+	
     if(!visible)
 		return;
 	
 	self.center = hiddenCP;
 	[self setHidden:YES];
 	visible = NO;
+}
+
+#pragma mark Utility Methods
+
+- (void) cancelAndClearHideTimer {
+	[hideTimer invalidate];
+	[hideTimer release];
+	hideTimer = nil;
 }
 
 #pragma mark Property Accessors
