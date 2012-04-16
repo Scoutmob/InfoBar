@@ -9,22 +9,13 @@
 
 
 #define kDefaultUndefinedInfoBarTag 2048
-
 #define kDefaultInfoBarHeight	30
 
 
 @implementation UITabBarController (JBInfoBar)
 
 
-static NSInteger defaultInfoBarTag = kDefaultUndefinedInfoBarTag;
-
-+ (void) setDefaultInfoBarTag:(NSInteger)tag {
-	defaultInfoBarTag = tag;
-}
-
-+ (NSInteger) defaultInfoBarTag {
-	return defaultInfoBarTag;
-}
+#pragma mark Public Accessors
 
 - (JBInfoBar*) infoBar {
 	return (JBInfoBar*) [self.view viewWithTag:defaultInfoBarTag];
@@ -37,6 +28,9 @@ static NSInteger defaultInfoBarTag = kDefaultUndefinedInfoBarTag;
 	
 	[self insertInfoBar:infoBar];
 }
+
+
+#pragma mark Action Methods
 
 - (void) showInfoBarWithMessage:(NSString *)message {
 	JBInfoBar *infoBar = self.infoBar;
@@ -60,6 +54,9 @@ static NSInteger defaultInfoBarTag = kDefaultUndefinedInfoBarTag;
 	[self.infoBar hideImmediately];
 }
 
+
+#pragma mark Utility Methods
+
 - (void) insertInfoBar:(JBInfoBar *)infoBar {
 	[self.view insertSubview:infoBar belowSubview:self.tabBar];
 }
@@ -73,6 +70,19 @@ static NSInteger defaultInfoBarTag = kDefaultUndefinedInfoBarTag;
 	JBInfoBar *infoBar = [[[JBInfoBar alloc] initWithFrame:frame] autorelease];
 	infoBar.tag = [[self class] defaultInfoBarTag];
 	return infoBar;
+}
+
+
+#pragma mark Global Configuration
+
+static NSInteger defaultInfoBarTag = kDefaultUndefinedInfoBarTag;
+
++ (void) setDefaultInfoBarTag:(NSInteger)tag {
+	defaultInfoBarTag = tag;
+}
+
++ (NSInteger) defaultInfoBarTag {
+	return defaultInfoBarTag;
 }
 
 @end
