@@ -20,9 +20,10 @@
 
 - (id)initWithFrame:(CGRect)frame;
 
-- (void)showBarWithMessage:(NSString *)message;
-- (void)hideBarWithMessage:(NSString *)message;
-- (void)hideBarImmediately;
+- (void)showWithMessage:(NSString *)message;
+- (void)hide;
+- (void)hideWithMessage:(NSString *)message;
+- (void)hideImmediately;
 
 
 @property (nonatomic, copy) NSString *message;

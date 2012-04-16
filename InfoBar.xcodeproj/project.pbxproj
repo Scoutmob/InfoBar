@@ -18,16 +18,13 @@
 		BF7B463B153C6E1E00616962 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF7B462A153C6E1E00616962 /* InfoPlist.strings */; };
 		BF7B463C153C6E1E00616962 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B462C153C6E1E00616962 /* MainWindow.xib */; };
 		BF7B463D153C6E1E00616962 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B462E153C6E1E00616962 /* SecondView.xib */; };
-		BF7B463E153C6E1E00616962 /* JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4632153C6E1E00616962 /* JBInfoBar.m */; };
-		BF7B463F153C6E1E00616962 /* JBInfoBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4634153C6E1E00616962 /* JBInfoBarManager.m */; };
 		BF7B4647153C6EF300616962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5FB2821311514600719F62 /* Foundation.framework */; };
 		BF7B4657153C6FC600616962 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7B4655153C6FC600616962 /* Icon.png */; };
 		BF7B4658153C6FC600616962 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7B4656153C6FC600616962 /* Icon@2x.png */; };
 		BF7B465E153C702900616962 /* libInfoBarStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B4646153C6EF300616962 /* libInfoBarStaticLibrary.a */; };
-		BF7B4661153C734700616962 /* JBInfoBar.h in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4631153C6E1E00616962 /* JBInfoBar.h */; };
 		BF7B4662153C734700616962 /* JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4632153C6E1E00616962 /* JBInfoBar.m */; };
-		BF7B4663153C734700616962 /* JBInfoBarManager.h in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4633153C6E1E00616962 /* JBInfoBarManager.h */; };
-		BF7B4664153C734700616962 /* JBInfoBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4634153C6E1E00616962 /* JBInfoBarManager.m */; };
+		BF7B466D153C860500616962 /* UITabBarController+JBInfoBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BF7B466B153C860500616962 /* UITabBarController+JBInfoBar.h */; };
+		BF7B466E153C860500616962 /* UITabBarController+JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B466C153C860500616962 /* UITabBarController+JBInfoBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,12 +57,12 @@
 		BF7B462F153C6E1E00616962 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
 		BF7B4631153C6E1E00616962 /* JBInfoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBInfoBar.h; sourceTree = "<group>"; };
 		BF7B4632153C6E1E00616962 /* JBInfoBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBInfoBar.m; sourceTree = "<group>"; };
-		BF7B4633153C6E1E00616962 /* JBInfoBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBInfoBarManager.h; sourceTree = "<group>"; };
-		BF7B4634153C6E1E00616962 /* JBInfoBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBInfoBarManager.m; sourceTree = "<group>"; };
 		BF7B4646153C6EF300616962 /* libInfoBarStaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInfoBarStaticLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7B4652153C6F6600616962 /* InfoBarStaticLibrary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InfoBarStaticLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		BF7B4655153C6FC600616962 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		BF7B4656153C6FC600616962 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		BF7B466B153C860500616962 /* UITabBarController+JBInfoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+JBInfoBar.h"; sourceTree = "<group>"; };
+		BF7B466C153C860500616962 /* UITabBarController+JBInfoBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+JBInfoBar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +146,9 @@
 		BF7B4630153C6E1E00616962 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				BF7B4633153C6E1E00616962 /* JBInfoBarManager.h */,
-				BF7B4634153C6E1E00616962 /* JBInfoBarManager.m */,
 				BF7B4631153C6E1E00616962 /* JBInfoBar.h */,
 				BF7B4632153C6E1E00616962 /* JBInfoBar.m */,
+				BF7B466A153C860500616962 /* UIKit Additions */,
 				BF7B4653153C6F6B00616962 /* Supporting Files */,
 			);
 			path = Library;
@@ -186,6 +182,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BF7B466A153C860500616962 /* UIKit Additions */ = {
+			isa = PBXGroup;
+			children = (
+				BF7B466B153C860500616962 /* UITabBarController+JBInfoBar.h */,
+				BF7B466C153C860500616962 /* UITabBarController+JBInfoBar.m */,
+			);
+			path = "UIKit Additions";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -193,6 +198,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7B466D153C860500616962 /* UITabBarController+JBInfoBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +288,6 @@
 				BF7B4637153C6E1E00616962 /* InfoBarAppDelegate.m in Sources */,
 				BF7B4638153C6E1E00616962 /* main.m in Sources */,
 				BF7B4639153C6E1E00616962 /* SecondViewController.m in Sources */,
-				BF7B463E153C6E1E00616962 /* JBInfoBar.m in Sources */,
-				BF7B463F153C6E1E00616962 /* JBInfoBarManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,10 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7B4661153C734700616962 /* JBInfoBar.h in Sources */,
 				BF7B4662153C734700616962 /* JBInfoBar.m in Sources */,
-				BF7B4663153C734700616962 /* JBInfoBarManager.h in Sources */,
-				BF7B4664153C734700616962 /* JBInfoBarManager.m in Sources */,
+				BF7B466E153C860500616962 /* UITabBarController+JBInfoBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,8 +354,9 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -366,8 +369,9 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -384,6 +388,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Code/Demo/InfoBarDemo-Prefix.pch";
 				INFOPLIST_FILE = "Code/Demo/InfoBarDemo-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -397,6 +402,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Code/Demo/InfoBarDemo-Prefix.pch";
 				INFOPLIST_FILE = "Code/Demo/InfoBarDemo-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -407,11 +413,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/InfoBarStaticLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Code/Library/InfoBarStaticLibrary-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -423,11 +432,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/InfoBarStaticLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Code/Library/InfoBarStaticLibrary-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

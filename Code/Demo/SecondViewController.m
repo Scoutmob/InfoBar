@@ -7,7 +7,8 @@
 //
 
 #import "SecondViewController.h"
-#import "JBInfoBarManager.h"
+#import "InfoBarAppDelegate.h"
+#import "UITabBarController+JBInfoBar.h"
 
 @implementation SecondViewController
 
@@ -20,8 +21,9 @@
 */
 
 - (IBAction)runAction {
-    [[JBInfoBarManager sharedManager] showInfoBarWithMessage:@"Action from View 2"];
-    [NSTimer scheduledTimerWithTimeInterval:5.0 target:[JBInfoBarManager sharedManager] selector:@selector(hideInfoBar) userInfo:nil repeats:NO];
+	InfoBarAppDelegate *appDelegate = (InfoBarAppDelegate*) [[UIApplication sharedApplication] delegate];
+	[appDelegate.tabBarController showInfoBarWithMessage:@"Action from View 2"];
+    [NSTimer scheduledTimerWithTimeInterval:5.0 target:appDelegate.tabBarController selector:@selector(hideInfoBar) userInfo:nil repeats:NO];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -8,11 +8,10 @@
 
 #import "JBInfoBar.h"
 
-#define kDefaultFontName	@"MavenPro"
-#define kDefaultFontSize	14
+#define kDefaultFont	[UIFont systemFontOfSize:17.0f]
 
-#define kDefaultBackgroundColor	[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.5]
-#define kDefaultTextColor		[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0]
+#define kDefaultBackgroundColor	[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.6f]
+#define kDefaultTextColor		[UIColor whiteColor]
 
 #define kDefaultHideAnimationDelay		0.0f
 #define kDefaultHideAnimationDuration	1.5f
@@ -38,7 +37,7 @@
 
 #pragma Public Action Methods
 
-- (void)showBarWithMessage:(NSString *)_message {
+- (void)showWithMessage:(NSString *)_message {
     self.message = _message;
 	
     if(visible)
@@ -54,9 +53,7 @@
 	visible = YES;
 }
 
-- (void)hideBarWithMessage:(NSString *)_message {
-    self.message = _message;
-	
+- (void)hide {
     if(!visible)
 		return;
 	
@@ -72,7 +69,13 @@
 	visible = NO;
 }
 
-- (void)hideBarImmediately {
+- (void)hideWithMessage:(NSString *)_message {
+    self.message = _message;
+	
+	[self hide];
+}
+
+- (void)hideImmediately {
     if(!visible)
 		return;
 	
@@ -151,10 +154,10 @@
 	infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 	
 	infoLabel.textAlignment = UITextAlignmentCenter;
-	infoLabel.font = [UIFont fontWithName:kDefaultFontName size:kDefaultFontSize];
-	
-	infoLabel.textColor = kDefaultTextColor;
 	infoLabel.backgroundColor = [UIColor clearColor];
+	
+	infoLabel.font = kDefaultFont;
+	infoLabel.textColor = kDefaultTextColor;
 	
 	[self addSubview:infoLabel];
 }
