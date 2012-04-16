@@ -149,10 +149,10 @@
 		BF7B4630153C6E1E00616962 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				BF7B4631153C6E1E00616962 /* JBInfoBar.h */,
-				BF7B4632153C6E1E00616962 /* JBInfoBar.m */,
 				BF7B4633153C6E1E00616962 /* JBInfoBarManager.h */,
 				BF7B4634153C6E1E00616962 /* JBInfoBarManager.m */,
+				BF7B4631153C6E1E00616962 /* JBInfoBar.h */,
+				BF7B4632153C6E1E00616962 /* JBInfoBar.m */,
 				BF7B4653153C6F6B00616962 /* Supporting Files */,
 			);
 			path = Library;

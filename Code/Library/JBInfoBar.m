@@ -6,99 +6,109 @@
 //  Copyright 2011 ThinkDiff.ch. All rights reserved.
 //
 
-#import "JBInfoBar.h" 
+#import "JBInfoBar.h"
+
+#define kDefaultFontName	@"MavenPro"
+#define kDefaultFontSize	14
+
+#define kDefaultBackgroundColor	[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.5]
+#define kDefaultTextColor		[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0]
+
+#define kDefaultHideAnimationDelay		0.0f
+#define kDefaultHideAnimationDuration	1.5f
+#define kDefaultShowAnimationDuration	0.5f
+
+
+@interface JBInfoBar ()
+
+- (void) prepareCenterPoints;
+- (void) prepareInfoLabel;
+- (void) prepareDefaultTimings;
+
+@end
+
 
 @implementation JBInfoBar
 
-@synthesize isHidden, hideAnimationDelay, hideAnimationDuration, showAnimationDuration;
+@synthesize visible;
+@synthesize hideAnimationDelay;
+@synthesize hideAnimationDuration;
+@synthesize showAnimationDuration;
 
-- (id)initWithFrame:(CGRect)frame
-    backgroundColor:(UIColor *)bColor
-          textColor:(UIColor *)tColor
-           textFont:(UIFont *)tFont
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        isHidden = YES;
-        hiddenCP = CGPointMake(frame.origin.x + frame.size.width / 2.0, frame.origin.y + frame.size.height / 2.0);
-        showCP = CGPointMake(frame.origin.x + frame.size.width / 2.0, frame.origin.y - frame.size.height / 2.0);
-        
-        if (!bColor) {
-            [self setBackgroundColor:[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.5]];
-        } else {
-            [self setBackgroundColor:bColor];
-        }
-        
-        [self setHidden:YES];
-        
-        infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-        [infoLabel setTextAlignment:UITextAlignmentCenter];
 
-        if (!tFont) {
-            [infoLabel setFont:[UIFont fontWithName:@"MavenPro" size:14]];
-        } else {
-            [infoLabel setFont:tFont];
-        }
-        
-        if (!tColor) {
-            [infoLabel setTextColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0]];
-        } else {
-            [infoLabel setTextColor:tColor];
-        }
-        
-        [infoLabel setBackgroundColor:[UIColor clearColor]];
-        
-        [self addSubview:infoLabel];
-        
-        self.hideAnimationDelay    = 0.0f;
-        self.hideAnimationDuration = 1.5f;
-        self.showAnimationDuration = 0.5f;
-    }
-    return self;
+#pragma Public Action Methods
+
+- (void)showBarWithMessage:(NSString *)_message {
+    self.message = _message;
+	
+    if(visible)
+		return;
+	
+	[self setHidden:NO];
+	[UIView transitionWithView:self duration:showAnimationDuration
+					   options:UIViewAnimationOptionTransitionNone
+					animations:^ {
+						self.center = showCP;
+					}
+					completion:nil];
+	visible = YES;
 }
 
-- (void)setMessage:(NSString *)message {
-    if (message != nil) infoLabel.text = message;
+- (void)hideBarWithMessage:(NSString *)_message {
+    self.message = _message;
+	
+    if(!visible)
+		return;
+	
+	[UIView animateWithDuration:hideAnimationDuration
+						  delay:hideAnimationDelay
+						options:UIViewAnimationOptionTransitionNone
+					 animations:^ {
+						 self.center = hiddenCP;
+					 }
+					 completion:^(BOOL finished) {
+						 [self setHidden:YES];
+					 }];
+	visible = NO;
+}
+
+- (void)hideBarImmediately {
+    if(!visible)
+		return;
+	
+	self.center = hiddenCP;
+	[self setHidden:YES];
+	visible = NO;
+}
+
+#pragma mark Property Accessors
+
+- (void)setMessage:(NSString *)_message {
+	infoLabel.text = _message;
+}
+
+- (NSString*)message {
+	return infoLabel.text;
+}
+
+- (void) setTextColor:(UIColor *)textColor {
+	infoLabel.textColor = textColor;
+}
+
+- (UIColor*) textColor {
+	return infoLabel.textColor;
+}
+
+- (void) setTextFont:(UIFont *)textFont {
+	infoLabel.font = textFont;
+}
+
+- (UIFont*) textFont {
+	return infoLabel.font;
 }
 
 - (UILabel *)infoLabel {
     return infoLabel;
-}
-
-- (void)showBarWithMessage:(NSString *)message {
-    [self setMessage:message];
-    if (isHidden) {
-        [self setHidden:NO];
-        [UIView transitionWithView:self duration:showAnimationDuration
-                           options:UIViewAnimationOptionTransitionNone
-                        animations:^ { self.center = showCP; }
-                        completion:nil];
-        isHidden = NO;
-    }
-}
-
-- (void)hideBarWithMessage:(NSString *)message {
-    if (message)
-        [self setMessage:message];
-    if (!isHidden) {
-        [UIView animateWithDuration:hideAnimationDuration
-                              delay:hideAnimationDelay
-                            options:UIViewAnimationOptionTransitionNone
-                         animations:^ { self.center = hiddenCP; }
-                         completion:^(BOOL finished) {
-                             [self setHidden:YES];
-                         }];
-        isHidden = YES;
-    }
-}
-
-- (void)hideBarImmediately {
-    if (!isHidden) {
-        self.center = hiddenCP;
-        [self setHidden:YES];
-        isHidden = YES;
-    }
 }
 
 /*
@@ -108,11 +118,56 @@
 {
     // Drawing code
 }
-*/
+ */
 
-- (void)dealloc
-{
+#pragma mark Instance Lifecycle
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        visible = NO;
+		
+		[self prepareCenterPoints];
+		[self prepareInfoLabel];
+		
+		self.backgroundColor = kDefaultBackgroundColor;
+		self.hidden = YES;
+        
+		[self prepareDefaultTimings];
+    }
+    return self;
+}
+
+- (void) prepareCenterPoints {
+	double centerX = self.frame.origin.x + self.frame.size.width / 2.0;
+	double hiddenCenterY = self.frame.origin.y + self.frame.size.height / 2.0;
+	double shownCenterY = self.frame.origin.y - self.frame.size.height / 2.0;
+	
+	hiddenCP = CGPointMake(centerX, hiddenCenterY);
+	showCP = CGPointMake(centerX, shownCenterY);
+}
+
+- (void) prepareInfoLabel {
+	infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+	
+	infoLabel.textAlignment = UITextAlignmentCenter;
+	infoLabel.font = [UIFont fontWithName:kDefaultFontName size:kDefaultFontSize];
+	
+	infoLabel.textColor = kDefaultTextColor;
+	infoLabel.backgroundColor = [UIColor clearColor];
+	
+	[self addSubview:infoLabel];
+}
+
+- (void) prepareDefaultTimings {
+	hideAnimationDelay = kDefaultHideAnimationDelay;
+	hideAnimationDuration = kDefaultHideAnimationDuration;
+	showAnimationDuration = kDefaultShowAnimationDuration;
+}
+
+- (void)dealloc {
     [infoLabel release];
+	
     [super dealloc];
 }
 
