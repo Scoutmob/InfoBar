@@ -10,6 +10,9 @@
 		5B5FB2811311514600719F62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5FB2801311514600719F62 /* UIKit.framework */; };
 		5B5FB2831311514600719F62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5FB2821311514600719F62 /* Foundation.framework */; };
 		5B5FB2851311514600719F62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5FB2841311514600719F62 /* CoreGraphics.framework */; };
+		BF3AA0A71620FA6700A82B96 /* UIViewController+JBInfoBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BF3AA0A61620FA6700A82B96 /* UIViewController+JBInfoBar.h */; };
+		BF3AA0B31620FAE200A82B96 /* UITabBarController+JBInfoBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BF3AA0B11620FAE100A82B96 /* UITabBarController+JBInfoBar.h */; };
+		BF3AA0B41620FAE200A82B96 /* UITabBarController+JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA0B21620FAE100A82B96 /* UITabBarController+JBInfoBar.m */; };
 		BF7B4635153C6E1E00616962 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4620153C6E1E00616962 /* FirstViewController.m */; };
 		BF7B4637153C6E1E00616962 /* InfoBarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4624153C6E1E00616962 /* InfoBarAppDelegate.m */; };
 		BF7B4638153C6E1E00616962 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4625153C6E1E00616962 /* main.m */; };
@@ -23,8 +26,7 @@
 		BF7B4658153C6FC600616962 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7B4656153C6FC600616962 /* Icon@2x.png */; };
 		BF7B465E153C702900616962 /* libInfoBarStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B4646153C6EF300616962 /* libInfoBarStaticLibrary.a */; };
 		BF7B4662153C734700616962 /* JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B4632153C6E1E00616962 /* JBInfoBar.m */; };
-		BF7B466D153C860500616962 /* UITabBarController+JBInfoBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BF7B466B153C860500616962 /* UITabBarController+JBInfoBar.h */; };
-		BF7B466E153C860500616962 /* UITabBarController+JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B466C153C860500616962 /* UITabBarController+JBInfoBar.m */; };
+		BF7B466E153C860500616962 /* UIViewController+JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B466C153C860500616962 /* UIViewController+JBInfoBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,9 @@
 		5B5FB2801311514600719F62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5B5FB2821311514600719F62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B5FB2841311514600719F62 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BF3AA0A61620FA6700A82B96 /* UIViewController+JBInfoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JBInfoBar.h"; sourceTree = "<group>"; };
+		BF3AA0B11620FAE100A82B96 /* UITabBarController+JBInfoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+JBInfoBar.h"; sourceTree = "<group>"; };
+		BF3AA0B21620FAE100A82B96 /* UITabBarController+JBInfoBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+JBInfoBar.m"; sourceTree = "<group>"; };
 		BF7B461F153C6E1E00616962 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		BF7B4620153C6E1E00616962 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		BF7B4621153C6E1E00616962 /* InfoBarDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "InfoBarDemo-Info.plist"; sourceTree = "<group>"; };
@@ -61,8 +66,7 @@
 		BF7B4652153C6F6600616962 /* InfoBarStaticLibrary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InfoBarStaticLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		BF7B4655153C6FC600616962 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		BF7B4656153C6FC600616962 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		BF7B466B153C860500616962 /* UITabBarController+JBInfoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+JBInfoBar.h"; sourceTree = "<group>"; };
-		BF7B466C153C860500616962 /* UITabBarController+JBInfoBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+JBInfoBar.m"; sourceTree = "<group>"; };
+		BF7B466C153C860500616962 /* UIViewController+JBInfoBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JBInfoBar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +189,10 @@
 		BF7B466A153C860500616962 /* UIKit Additions */ = {
 			isa = PBXGroup;
 			children = (
-				BF7B466B153C860500616962 /* UITabBarController+JBInfoBar.h */,
-				BF7B466C153C860500616962 /* UITabBarController+JBInfoBar.m */,
+				BF3AA0A61620FA6700A82B96 /* UIViewController+JBInfoBar.h */,
+				BF7B466C153C860500616962 /* UIViewController+JBInfoBar.m */,
+				BF3AA0B11620FAE100A82B96 /* UITabBarController+JBInfoBar.h */,
+				BF3AA0B21620FAE100A82B96 /* UITabBarController+JBInfoBar.m */,
 			);
 			path = "UIKit Additions";
 			sourceTree = "<group>";
@@ -198,7 +204,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7B466D153C860500616962 /* UITabBarController+JBInfoBar.h in Headers */,
+				BF3AA0A71620FA6700A82B96 /* UIViewController+JBInfoBar.h in Headers */,
+				BF3AA0B31620FAE200A82B96 /* UITabBarController+JBInfoBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7B4662153C734700616962 /* JBInfoBar.m in Sources */,
-				BF7B466E153C860500616962 /* UITabBarController+JBInfoBar.m in Sources */,
+				BF7B466E153C860500616962 /* UIViewController+JBInfoBar.m in Sources */,
+				BF3AA0B41620FAE200A82B96 /* UITabBarController+JBInfoBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
