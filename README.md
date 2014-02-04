@@ -1,11 +1,13 @@
-=== INFO ===
+INFO
+====
 InfoBar is a simple bar useful in apps that have tasks that run in backgrouns (like file download or updates).
 The goal is showing messages above the TabBar in an asynchronous way.
 
 To implement the InfoBar please copy JBInfoBar.h and JBInfoBar.m and add it to the delegate.
 
 
-=== LICENSE ===
+LICENSE
+=======
 InfoBar is released under MIT License
 
 Copyright (c) 2011 Junior B. - ThinkDiff.ch

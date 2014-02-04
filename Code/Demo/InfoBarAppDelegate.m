@@ -7,7 +7,8 @@
 //
 
 #import "InfoBarAppDelegate.h"
-#import "JBInfoBarManager.h"
+#import "UITabBarController+JBInfoBar.h"
+
 
 @implementation InfoBarAppDelegate
 
@@ -16,29 +17,20 @@
 
 @synthesize tabBarController=_tabBarController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
     // Add the infoBar
-    [[JBInfoBarManager sharedManager] initInfoBarWithFrame:CGRectMake(0, self.tabBarController.tabBar.frame.origin.y,
-                                                                      self.tabBarController.tabBar.frame.size.width, 30)
-                                           backgroundColor:[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.6f]
-                                                 textColor:[UIColor whiteColor]
-                                                  textFont:[UIFont systemFontOfSize:17.0f]];
-    
-    [self.tabBarController.view insertSubview:[[JBInfoBarManager sharedManager] infoBar] belowSubview:self.tabBarController.tabBar];
-    [[JBInfoBarManager sharedManager] showInfoBarWithMessage:@"Test Up!"];
+	[self.tabBarController showInfoBarWithMessage:@"Test Up!"];
     
     return YES;
 }
 
-- (void)hideInfoBar 
-{
-    [[JBInfoBarManager sharedManager] hideInfoBarWithMessage:@"Finished!"];
+- (void)hideInfoBar {
+	[self.tabBarController hideInfoBarWithMessage:@"Finished!"];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

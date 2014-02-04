@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "JBInfoBar.h"
 
-@interface InfoBarAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
-}
+
+@interface InfoBarAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 @end
